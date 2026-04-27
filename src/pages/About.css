@@ -1,0 +1,41 @@
+.about {
+  padding: 30px;
+  text-align: center;
+}
+
+.about h1 {
+  margin-bottom: 15px;
+}
+
+.about p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  color: #555;
+}
+
+/* CARDS */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.about-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}
+
+/* FOOTER */
+.about-footer {
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
+}

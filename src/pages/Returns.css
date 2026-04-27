@@ -1,0 +1,11 @@
+.returns {
+  padding: 20px;
+}
+
+.return-item {
+  background: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 5px solid red;
+  border-radius: 5px;
+}

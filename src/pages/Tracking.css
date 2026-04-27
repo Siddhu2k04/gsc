@@ -1,0 +1,68 @@
+.tracking {
+  padding: 30px;
+}
+
+.tracking h2 {
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.tracking-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tracking-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tracking-form button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+/* FLOW */
+.tracking-flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* STEP */
+.step-container {
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+}
+
+/* STATUS COLORS */
+.step.completed {
+  background: #16a34a;
+}
+
+.step.in-progress {
+  background: #f59e0b;
+}
+
+.step.pending {
+  background: #9ca3af;
+}
+
+/* LINE */
+.line {
+  width: 50px;
+  height: 3px;
+  background: #ccc;
+}

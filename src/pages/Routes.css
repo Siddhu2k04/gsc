@@ -1,0 +1,84 @@
+.routes {
+  padding: 20px;
+}
+
+.routes h2 {
+  margin-bottom: 15px;
+}
+
+/* FILTER BUTTONS */
+.route-filters {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.route-filters button {
+  background: #e5e7eb;
+  color: black;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.route-filters button:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* GRID */
+.route-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 15px;
+}
+
+/* CARD */
+.route-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.route-card:hover {
+  transform: translateY(-5px);
+}
+
+/* COLORS BY TYPE */
+.route-card.Land {
+  border-left: 6px solid #16a34a;
+}
+
+.route-card.Air {
+  border-left: 6px solid #3b82f6;
+}
+
+.route-card.Sea {
+  border-left: 6px solid #0ea5e9;
+}
+
+/* TITLE */
+.route-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BUTTON */
+.select-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-btn:hover {
+  background: #374151;
+}

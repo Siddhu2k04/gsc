@@ -1,0 +1,78 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111827;
+  padding: 10px 20px;
+}
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+}
+
+.nav-left h2 {
+  color: white;
+  font-size: 18px;
+}
+
+/* CENTER */
+.nav-center {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-center a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-center a:hover {
+  color: white;
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #1f2937;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  margin-left: 5px;
+}
+
+/* FLAG */
+.flag {
+  width: 25px;
+  height: 18px;
+  border-radius: 3px;
+}
+
+/* PROFILE */
+.profile-icon {
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
