@@ -15,6 +15,37 @@ export default function Dashboard() {
         <h1>Dashboard</h1>
         <p className="subtitle">Overview of your supply chain system</p>
 
+        <div className="overview-grid">
+          <div className="overview-card">
+            <h2>Supply Chain Snapshot</h2>
+            <p>Visual summary of network health, delivery performance, and inventory flow.</p>
+            <div className="overview-items">
+              <div>
+                <span>Network</span>
+                <strong>Global</strong>
+              </div>
+              <div>
+                <span>Uptime</span>
+                <strong>99.8%</strong>
+              </div>
+              <div>
+                <span>Efficiency</span>
+                <strong>94%</strong>
+              </div>
+            </div>
+          </div>
+
+          <div className="overview-card highlight">
+            <h2>Action Focus</h2>
+            <p>Keep supply moving with proactive planning, route optimization, and inventory readiness.</p>
+            <div className="chip-row">
+              <span>Shipment forecasting</span>
+              <span>Route planning</span>
+              <span>Stock alerts</span>
+            </div>
+          </div>
+        </div>
+
         {/* STATS */}
         <div className="stats">
           <div className="stat-card">
