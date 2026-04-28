@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import "./Tracking.css";
 
@@ -8,15 +8,7 @@ export default function Tracking() {
   const [end, setEnd] = useState("");
   const [route, setRoute] = useState([]);
 
-  useEffect(() => {
-    if (location.state && location.state.from && location.state.to) {
-      setStart(location.state.from);
-      setEnd(location.state.to);
-      generateRoute(location.state.from, location.state.to);
-    }
-  }, [location.state]);
-
-  const generateRoute = (startVal = start, endVal = end) => {
+  const generateRoute = useCallback((startVal, endVal) => {
     if (!startVal || !endVal) return;
 
     setRoute([
@@ -25,13 +17,20 @@ export default function Tracking() {
       { name: "Transport Hub", status: "in-progress" },
       { name: endVal, status: "pending" }
     ]);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (location.state?.from && location.state?.to) {
+      setStart(location.state.from);
+      setEnd(location.state.to);
+      generateRoute(location.state.from, location.state.to);
+    }
+  }, [location.state, generateRoute]);
 
   return (
     <div className="tracking">
       <h2>Track Product</h2>
 
-      {/* INPUTS */}
       <div className="tracking-form">
         <input
           placeholder="Start Point"
@@ -43,18 +42,15 @@ export default function Tracking() {
           value={end}
           onChange={(e) => setEnd(e.target.value)}
         />
-        <button onClick={() => generateRoute()}>Track</button>
+        <button onClick={() => generateRoute(start, end)}>Track</button>
       </div>
 
-      {/* DASHBOARD FLOW */}
       <div className="tracking-flow">
         {route.map((step, i) => (
           <div key={i} className="step-container">
-            
             <div className={`step ${step.status}`}>
               {step.name}
             </div>
-
             {i !== route.length - 1 && <div className="line"></div>}
           </div>
         ))}
