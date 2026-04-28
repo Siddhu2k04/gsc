@@ -49,8 +49,8 @@ export default function Industries() {
             <p>{ind.desc}</p>
 
             <div className="industry-actions">
-              <button className="explore-btn">Explore</button>
-              <button className="contact-btn">Contact</button>
+              <button className="explore-btn" onClick={() => alert(`Exploring ${ind.name}`)}>Explore</button>
+              <button className="contact-btn" onClick={() => alert(`Contacting ${ind.name} expert`)}>Contact</button>
             </div>
           </div>
         ))}

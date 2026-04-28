@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Routes.css";
 import { FaTruck, FaPlane, FaShip } from "react-icons/fa";
 
 export default function Routes() {
+  const navigate = useNavigate();
   const [routes] = useState([
     {
       id: 1,
@@ -72,7 +74,7 @@ export default function Routes() {
             <p><strong>Time:</strong> {route.time}</p>
             <p><strong>Cost:</strong> {route.cost}</p>
 
-            <button className="select-btn">Select Route</button>
+            <button className="select-btn" onClick={() => navigate('/tracking', { state: { from: route.from, to: route.to } })}>Select Route</button>
           </div>
         ))}
       </div>

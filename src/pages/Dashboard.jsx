@@ -1,8 +1,10 @@
 import Navbar from "../components/Navbar";
 import "./Dashboard.css";
 import { FaBox, FaTruck, FaWarehouse, FaShippingFast } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -45,19 +47,19 @@ export default function Dashboard() {
           <div className="action-card">
             <h3>Track Shipment</h3>
             <p>Track your product in real-time</p>
-            <button>Track Now</button>
+            <button onClick={() => navigate('/tracking')}>Track Now</button>
           </div>
 
           <div className="action-card">
             <h3>Add Product</h3>
             <p>Manage your inventory</p>
-            <button>Add Product</button>
+            <button onClick={() => navigate('/products')}>Add Product</button>
           </div>
 
           <div className="action-card">
             <h3>View Routes</h3>
             <p>Check transport routes</p>
-            <button>Explore</button>
+            <button onClick={() => navigate('/routes')}>Explore</button>
           </div>
         </div>
 

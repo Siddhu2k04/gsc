@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./Tracking.css";
 
 export default function Tracking() {
+  const location = useLocation();
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [route, setRoute] = useState([]);
 
-  const generateRoute = () => {
-    if (!start || !end) return;
+  useEffect(() => {
+    if (location.state && location.state.from && location.state.to) {
+      setStart(location.state.from);
+      setEnd(location.state.to);
+      generateRoute(location.state.from, location.state.to);
+    }
+  }, [location.state]);
+
+  const generateRoute = (startVal = start, endVal = end) => {
+    if (!startVal || !endVal) return;
 
     setRoute([
-      { name: start, status: "completed" },
+      { name: startVal, status: "completed" },
       { name: "Warehouse", status: "completed" },
       { name: "Transport Hub", status: "in-progress" },
-      { name: end, status: "pending" }
+      { name: endVal, status: "pending" }
     ]);
   };
 
@@ -33,7 +43,7 @@ export default function Tracking() {
           value={end}
           onChange={(e) => setEnd(e.target.value)}
         />
-        <button onClick={generateRoute}>Track</button>
+        <button onClick={() => generateRoute()}>Track</button>
       </div>
 
       {/* DASHBOARD FLOW */}

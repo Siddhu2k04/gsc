@@ -15,21 +15,21 @@ export default function Support() {
           <FaHeadset className="icon" />
           <h3>Live Support</h3>
           <p>Chat with our support team in real-time.</p>
-          <button>Start Chat</button>
+          <button onClick={() => alert("Chat started!")}>Start Chat</button>
         </div>
 
         <div className="support-card">
           <FaEnvelope className="icon" />
           <h3>Email Us</h3>
           <p>Send your queries via email.</p>
-          <button>Send Email</button>
+          <button onClick={() => alert("Email client opened!")}>Send Email</button>
         </div>
 
         <div className="support-card">
           <FaPhone className="icon" />
           <h3>Call Support</h3>
           <p>Talk directly with our experts.</p>
-          <button>Call Now</button>
+          <button onClick={() => alert("Calling support!")}>Call Now</button>
         </div>
       </div>
 
@@ -61,7 +61,7 @@ export default function Support() {
         <input type="email" placeholder="Your Email" />
         <textarea placeholder="Your Message"></textarea>
 
-        <button>Submit</button>
+        <button onClick={() => alert("Support request submitted!")}>Submit</button>
       </div>
     </div>
   );

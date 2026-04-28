@@ -1,29 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
 import "./Products.css";
 
 export default function Products() {
-  const [products, setProducts] = useState([
-    { name: "Paracetamol", category: "Pharmaceutical" },
-    { name: "Mobile Chip", category: "Electronics" },
-    { name: "Iron Ore", category: "Raw Material" },
-    { name: "Steel Rod", category: "Finished Product" }
-  ]);
-
+  const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("Pharmaceutical");
+  const navigate = useNavigate();
 
-  const addProduct = () => {
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await api.get('products/');
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching products", error);
+    }
+  };
+
+  const addProduct = async () => {
     if (!name) return;
-    setProducts([...products, { name, category }]);
-    setName("");
+    try {
+      const response = await api.post('products/', { name, category });
+      setProducts([response.data, ...products]);
+      setName("");
+    } catch (error) {
+      console.error("Error adding product", error);
+    }
   };
 
   const handleBuy = (product) => {
-    alert(`Buying ${product.name}`);
+    navigate('/routes');
   };
 
   const handleTry = (product) => {
-    alert(`Requesting demo for ${product.name}`);
+    navigate('/routes');
   };
 
   return (
@@ -53,10 +68,10 @@ export default function Products() {
 
       {/* PRODUCT LIST */}
       <div className="product-list">
-        {products.map((p, i) => (
+        {products.map((p) => (
           <div
-            key={i}
-            className={`product-card ${p.category.replace(" ", "")}`}
+            key={p.id}
+            className={`product-card ${p.category ? p.category.replace(" ", "") : ""}`}
           >
             <h4>{p.name}</h4>
             <p>{p.category}</p>
